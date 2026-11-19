@@ -3,7 +3,7 @@
 Ein klassisches Rollenspiel im Pixelstil: Karte von oben, rundenbasierte Kämpfe in Seitenansicht.
 Das Spiel erscheint in Kapiteln für Windows, Linux und Android.
 
-**Stand:** Prototyp 0.1 mit Platzhaltergrafik.
+**Stand:** Prototyp 0.2 mit Platzhaltergrafik.
 
 ## Was der Prototyp kann
 

@@ -26,16 +26,16 @@ func _ready() -> void:
 	bgr.size = Vector2(384, 216)
 	add_child(bgr)
 
-	var head := UiTheme.panel(Rect2(40, 8, 304, 40))
+	var head := UiTheme.panel(Rect2(30, 8, 324, 40))
 	var v := VBoxContainer.new()
 	v.add_child(UiTheme.label("Wie heißt der Ritter, der aus dem Krieg heimkehrt?"))
-	name_label = UiTheme.label("", 12)
+	name_label = UiTheme.label("")
 	name_label.add_theme_color_override("font_color", UiTheme.HIGHLIGHT)
 	v.add_child(name_label)
 	head.add_child(v)
 	add_child(head)
 
-	var pad := UiTheme.panel(Rect2(40, 54, 304, 154))
+	var pad := UiTheme.panel(Rect2(30, 52, 324, 156))
 	var box := VBoxContainer.new()
 	var grid := GridContainer.new()
 	grid.columns = 13
@@ -44,8 +44,8 @@ func _ready() -> void:
 	var first: Button
 	for row in ROWS:
 		for i in 13:
-			var b := Button.new()
-			b.custom_minimum_size = Vector2(22, 16)
+			var b := UiTheme.menu_button("")
+			b.custom_minimum_size = Vector2(21, 14)
 			if i < row.length():
 				var ch: String = row[i]
 				b.text = ch
@@ -60,8 +60,7 @@ func _ready() -> void:
 	box.add_child(grid)
 	var row2 := HBoxContainer.new()
 	for pair in [["Leerzeichen", _add.bind(" ")], ["Löschen", _delete], ["Vorschlag", _suggest], ["Fertig", _finish]]:
-		var b := Button.new()
-		b.text = pair[0]
+		var b := UiTheme.menu_button(pair[0])
 		b.pressed.connect(pair[1])
 		row2.add_child(b)
 	box.add_child(row2)

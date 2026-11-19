@@ -117,42 +117,91 @@ func _draw() -> void:
 	for y in rows.size():
 		var r: String = rows[y]
 		for x in r.length():
-			_draw_tile(Vector2(x * TILE, y * TILE), r[x])
+			_draw_tile(Vector2(x * TILE, y * TILE), r[x], x, y)
 
 
-func _draw_tile(o: Vector2, ch: String) -> void:
+const OUTLINE := Color("#102018")
+
+
+func _px(o: Vector2, x: int, y: int, c: Color, w: int = 1, h: int = 1) -> void:
+	draw_rect(Rect2(o + Vector2(x, y), Vector2(w, h)), c)
+
+
+## Platzhalter-Kacheln im 16-Bit-Stil. Werden später durch echte Grafiken ersetzt.
+func _draw_tile(o: Vector2, ch: String, tx: int, ty: int) -> void:
 	var t: Dictionary = Game.tiles.get(ch, {"color": "#ff00ff", "shape": "plain"})
 	var base := Game.color(t.get("color", "#ff00ff"))
 	var det := Game.color(t.get("detail", "#000000"))
+	var hsh := (tx * 73856093) ^ (ty * 19349663)
 	draw_rect(Rect2(o, Vector2(TILE, TILE)), base)
 	match t.get("shape", "plain"):
+		"grass":
+			# kleine Grasbüschel an zufälligen, aber festen Stellen
+			for i in 2:
+				var gx := (hsh >> (i * 4)) & 11
+				var gy := (hsh >> (i * 4 + 8)) & 11
+				_px(o, gx + 1, gy + 2, det)
+				_px(o, gx + 3, gy + 2, det)
+				_px(o, gx + 2, gy + 3, det)
+		"dirt":
+			for i in 3:
+				var gx := (hsh >> (i * 3)) & 13
+				var gy := (hsh >> (i * 3 + 9)) & 13
+				_px(o, gx + 1, gy + 1, det)
 		"tree":
-			draw_rect(Rect2(o + Vector2(7, 10), Vector2(2, 5)), Color("#5a3a20"))
-			draw_circle(o + Vector2(8, 7), 6, det)
-			draw_circle(o + Vector2(6, 6), 2, det.lightened(0.2))
+			var dark := det.darkened(0.35)
+			var light := det.lightened(0.25)
+			_px(o, 6, 11, Color("#5a3418"), 4, 4)
+			_px(o, 6, 15, OUTLINE, 4, 1)
+			draw_circle(o + Vector2(8, 7), 7.0, OUTLINE)
+			draw_circle(o + Vector2(8, 7), 6.0, dark)
+			draw_circle(o + Vector2(8, 6), 5.0, det)
+			_px(o, 5, 3, light, 2, 1)
+			_px(o, 4, 4, light, 2, 2)
+			_px(o, 9, 5, light)
 		"mountain":
-			draw_colored_polygon(PackedVector2Array([o + Vector2(1, 15), o + Vector2(8, 2), o + Vector2(15, 15)]), det)
-			draw_colored_polygon(PackedVector2Array([o + Vector2(6, 6), o + Vector2(8, 2), o + Vector2(10, 6)]), Color.WHITE)
+			var pts := PackedVector2Array([o + Vector2(0, 16), o + Vector2(8, 1), o + Vector2(16, 16)])
+			draw_colored_polygon(pts, det)
+			draw_colored_polygon(PackedVector2Array([o + Vector2(8, 1), o + Vector2(16, 16), o + Vector2(9, 16)]), det.darkened(0.3))
+			draw_colored_polygon(PackedVector2Array([o + Vector2(5, 7), o + Vector2(8, 1), o + Vector2(11, 7), o + Vector2(8, 6)]), Color("#f0f0f8"))
+			draw_polyline(PackedVector2Array([o + Vector2(0, 15), o + Vector2(8, 1), o + Vector2(15, 15)]), OUTLINE)
 		"water":
-			draw_line(o + Vector2(2, 5), o + Vector2(7, 5), det)
-			draw_line(o + Vector2(9, 11), o + Vector2(14, 11), det)
+			var phase := (tx + ty) % 2
+			_px(o, 2 + phase * 6, 4, det, 4, 1)
+			_px(o, 9 - phase * 6, 11, det, 4, 1)
 		"bridge":
-			for i in 4:
-				draw_line(o + Vector2(0, 2 + i * 4), o + Vector2(16, 2 + i * 4), det)
+			draw_rect(Rect2(o, Vector2(TILE, TILE)), Color("#3060d0"))
+			_px(o, 0, 1, OUTLINE, 16, 14)
+			_px(o, 0, 2, base, 16, 12)
+			for i in 3:
+				_px(o, 0, 5 + i * 3, det, 16, 1)
 		"village":
-			draw_rect(Rect2(o + Vector2(2, 7), Vector2(5, 6)), Color("#d8c8a0"))
-			draw_rect(Rect2(o + Vector2(9, 5), Vector2(5, 8)), Color("#d8c8a0"))
-			draw_colored_polygon(PackedVector2Array([o + Vector2(1, 7), o + Vector2(4.5, 3), o + Vector2(8, 7)]), det)
-			draw_colored_polygon(PackedVector2Array([o + Vector2(8, 5), o + Vector2(11.5, 1), o + Vector2(15, 5)]), det)
+			for hx in [[1, 7], [9, 4]]:
+				var x: int = hx[0]
+				var y: int = hx[1]
+				_px(o, x, y + 2, OUTLINE, 7, 8 - (y - 4))
+				_px(o, x + 1, y + 3, Color("#f0e0b8"), 5, 6 - (y - 4))
+				draw_colored_polygon(PackedVector2Array([o + Vector2(x - 1, y + 3), o + Vector2(x + 3.5, y - 2), o + Vector2(x + 8, y + 3)]), det)
+				_px(o, x + 3, y + 6, Color("#603010"), 2, 3 - (y - 4) + (1 if y == 4 else 0))
 		"fence":
-			draw_rect(Rect2(o + Vector2(0, 6), Vector2(16, 2)), det)
-			draw_rect(Rect2(o + Vector2(0, 11), Vector2(16, 2)), det)
+			for px in [1, 7, 13]:
+				_px(o, px, 3, OUTLINE, 3, 12)
+				_px(o, px + 1, 4, det.lightened(0.2), 1, 10)
+			_px(o, 0, 6, OUTLINE, 16, 3)
+			_px(o, 0, 7, det, 16, 1)
+			_px(o, 0, 11, OUTLINE, 16, 3)
+			_px(o, 0, 12, det, 16, 1)
 		"roof":
 			for i in 4:
-				draw_line(o + Vector2(0, 3 + i * 4), o + Vector2(16, 3 + i * 4), det)
+				_px(o, 0, 3 + i * 4, det, 16, 1)
+			for i in 4:
+				_px(o, (i * 4 + (ty % 2) * 2) % 16, 0 + i * 4, det, 1, 3)
 		"door":
-			draw_rect(Rect2(o + Vector2(3, 2), Vector2(10, 14)), det.darkened(0.6))
-			draw_circle(o + Vector2(11, 9), 1, det)
+			_px(o, 2, 1, OUTLINE, 12, 15)
+			_px(o, 3, 2, Color("#704020"), 10, 14)
+			_px(o, 8, 2, OUTLINE, 1, 14)
+			_px(o, 10, 9, det, 1, 1)
+			_px(o, 5, 9, det, 1, 1)
 
 
 # ---------- Bewegung ----------

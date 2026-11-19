@@ -66,7 +66,7 @@ class _ButtonLook extends Node2D:
 			draw_circle(Vector2.ZERO, radius, bg)
 		else:
 			draw_rect(Rect2(Vector2(-BTN / 2, -BTN / 2), Vector2(BTN, BTN)), bg)
-		var font := ThemeDB.fallback_font
-		var fs := 9
+		var font: Font = load("res://assets/fonts/pixelfont.fnt")
+		var fs := 12
 		var w := font.get_string_size(caption, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
 		draw_string(font, Vector2(-w / 2, 3), caption, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, fg)

@@ -14,9 +14,9 @@ func _ready() -> void:
 	bgr.color = Color("#0b1030")
 	bgr.size = Vector2(384, 216)
 	add_child(bgr)
-	var title := UiTheme.label("FantasyPixelgame", 24)
-	title.position = Vector2(0, 40)
-	title.size = Vector2(384, 30)
+	var title := UiTheme.label("FantasyPixelgame", 3)
+	title.position = Vector2(0, 30)
+	title.size = Vector2(128, 14)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_color_override("font_color", UiTheme.HIGHLIGHT)
 	add_child(title)

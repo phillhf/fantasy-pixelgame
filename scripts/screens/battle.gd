@@ -79,7 +79,7 @@ func _build() -> void:
 	top.add_child(msg_label)
 	add_child(top)
 
-	var status := UiTheme.panel(Rect2(152, 148, 228, 64))
+	var status := UiTheme.panel(Rect2(166, 148, 214, 64))
 	status_label = UiTheme.label()
 	status.add_child(status_label)
 	add_child(status)
@@ -484,10 +484,11 @@ func _shake() -> void:
 
 
 func _popup(at: Vector2, text: String, col: Color) -> void:
-	var l := UiTheme.label(text, 12)
+	var l := UiTheme.label(text)
 	l.add_theme_color_override("font_color", col)
-	l.add_theme_color_override("font_outline_color", Color.BLACK)
-	l.add_theme_constant_override("outline_size", 3)
+	l.add_theme_color_override("font_shadow_color", Color.BLACK)
+	l.add_theme_constant_override("shadow_offset_x", 1)
+	l.add_theme_constant_override("shadow_offset_y", 1)
 	l.position = at
 	add_child(l)
 	var t := create_tween()

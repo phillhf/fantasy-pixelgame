@@ -15,7 +15,7 @@ func _init() -> void:
 	theme = UiTheme.get_theme()
 	_grid = GridContainer.new()
 	_grid.add_theme_constant_override("h_separation", 6)
-	_grid.add_theme_constant_override("v_separation", 0)
+	_grid.add_theme_constant_override("v_separation", 2)
 	add_child(_grid)
 	hide()
 
@@ -31,10 +31,8 @@ func open(options: Array, allow_cancel: bool = true, columns: int = 1, start: in
 	if allow_cancel:
 		all.append("Zurück")
 	for i in all.size():
-		var b := Button.new()
-		b.text = String(all[i])
-		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		b.custom_minimum_size = Vector2(54, 0)
+		var b := UiTheme.menu_button(String(all[i]))
+		b.custom_minimum_size = Vector2(56, 0)
 		var idx: int = i if i < options.size() else -1
 		b.pressed.connect(_on_pressed.bind(idx))
 		_grid.add_child(b)
