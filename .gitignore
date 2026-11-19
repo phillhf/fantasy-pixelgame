@@ -13,3 +13,6 @@ Lore/
 # System
 .DS_Store
 Thumbs.db
+
+# Lokale Vorschaubilder
+build_vorschau*.png
