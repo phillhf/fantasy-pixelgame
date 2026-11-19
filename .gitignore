@@ -1,0 +1,15 @@
+# Godot
+.godot/
+*.import.tmp
+export_credentials.cfg
+build/
+dist/
+android/
+
+# Private Unterlagen (Lore, Vision) bleiben lokal
+Lore/
+*.docx
+
+# System
+.DS_Store
+Thumbs.db

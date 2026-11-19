@@ -1,0 +1,24 @@
+{
+  "_hinweis": "Gegner. level wird für die Fluchtregel genutzt. color und size sind Platzhalter bis zur echten Grafik.",
+  "wolf": {
+    "name": "Wolf",
+    "level": 1,
+    "hp": 12, "atk": 8, "def": 2, "agi": 8,
+    "xp": 5, "gold": 2,
+    "color": "#8a8a90", "size": [30, 20], "shape": "beast"
+  },
+  "raeuber": {
+    "name": "Räuber",
+    "level": 2,
+    "hp": 18, "atk": 9, "def": 4, "agi": 5,
+    "xp": 8, "gold": 9,
+    "color": "#8a5a32", "size": [20, 34], "shape": "humanoid"
+  },
+  "keiler": {
+    "name": "Keiler",
+    "level": 3,
+    "hp": 26, "atk": 11, "def": 6, "agi": 3,
+    "xp": 12, "gold": 4,
+    "color": "#5a3e2c", "size": [34, 22], "shape": "beast"
+  }
+}

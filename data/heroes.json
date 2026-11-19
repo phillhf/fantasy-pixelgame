@@ -1,0 +1,14 @@
+{
+  "_hinweis": "Gruppenmitglieder. base = Werte auf Stufe 1, growth = Zuwachs pro Stufe. skills: ab welcher Stufe eine Fähigkeit gelernt wird.",
+  "held": {
+    "name": "",
+    "title": "Ritter des Wegordens",
+    "color": "#3a6fd8",
+    "base": {"hp": 32, "kp": 8, "atk": 9, "def": 6, "agi": 6, "mag": 4},
+    "growth": {"hp": 6, "kp": 2, "atk": 2, "def": 2, "agi": 1, "mag": 1},
+    "skills": [
+      {"id": "kraeuterheilung", "level": 1},
+      {"id": "schildschlag", "level": 3}
+    ]
+  }
+}

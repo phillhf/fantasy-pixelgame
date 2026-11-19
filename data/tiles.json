@@ -1,0 +1,17 @@
+{
+  "_hinweis": "Kartenzeichen. walk = begehbar, enc = Zufallskämpfe möglich, enc_mult = Häufigkeit. shape bestimmt die Platzhalter-Grafik.",
+  ".": {"name": "Wiese", "color": "#5a9a40", "walk": true, "enc": true, "enc_mult": 1.0, "shape": "plain"},
+  "T": {"name": "Wald", "color": "#5a9a40", "walk": true, "enc": true, "enc_mult": 1.6, "shape": "tree", "detail": "#24562a"},
+  "^": {"name": "Berg", "color": "#5a9a40", "walk": false, "shape": "mountain", "detail": "#7d7468"},
+  "~": {"name": "Wasser", "color": "#2f5fa8", "walk": false, "shape": "water", "detail": "#6f9ad8"},
+  "=": {"name": "Straße", "color": "#b8a070", "walk": true, "enc": true, "enc_mult": 0.4, "shape": "plain"},
+  "B": {"name": "Brücke", "color": "#8a6038", "walk": true, "enc": false, "shape": "bridge", "detail": "#5a3c20"},
+  "E": {"name": "Erlenfurt", "color": "#5a9a40", "walk": true, "enc": false, "shape": "village", "detail": "#a83a2a"},
+  "S": {"name": "Schrein", "color": "#5a9a40", "walk": true, "enc": false, "shape": "plain"},
+  "W": {"name": "Wegweiser", "color": "#5a9a40", "walk": true, "enc": false, "shape": "plain"},
+  "#": {"name": "Zaun", "color": "#6a5038", "walk": false, "shape": "fence", "detail": "#4a3424"},
+  "F": {"name": "Gras", "color": "#6aaa4a", "walk": true, "shape": "plain"},
+  ",": {"name": "Weg", "color": "#c0a878", "walk": true, "shape": "plain"},
+  "h": {"name": "Haus", "color": "#9a4030", "walk": false, "shape": "roof", "detail": "#7a2c20"},
+  "D": {"name": "Tür", "color": "#5a3820", "walk": false, "shape": "door", "detail": "#d8b048"}
+}

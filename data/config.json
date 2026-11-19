@@ -1,0 +1,17 @@
+{
+  "_hinweis": "Grundeinstellungen des Spiels. Zahlen dürfen geändert werden.",
+  "start_map": "welt",
+  "start_pos": [20, 18],
+  "start_level": 1,
+  "start_gold": 30,
+  "start_inventory": {"heilkraut": 3, "brot": 2},
+  "default_hero_name": "Garet",
+  "max_name_length": 8,
+  "flee_level_diff": 10,
+  "overcast_hp_per_kp": 3,
+  "move_time": 0.14,
+  "battle_message_time": 0.9,
+  "defeat_return_map": "erlenfurt",
+  "defeat_return_pos": [21, 6],
+  "force_touch_controls": false
+}

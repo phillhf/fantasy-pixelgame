@@ -1,0 +1,46 @@
+{
+  "_hinweis": "Texte. Jede Zeile ist ein Textfenster. {held} wird durch den Namen des Helden ersetzt.",
+  "intro": [
+    "Drei Jahre Erzkrieg liegen hinter dir, {held}.",
+    "Varanthos hat gesiegt. Gefeiert wird in den Städten, nicht bei denen, die zurückkehren.",
+    "Vor dir liegt die Holtmark. Im Westen wartet Erlenfurt, dein Zuhause.",
+    "Und irgendwo im Süden soll Aurelius jetzt eine Taverne führen."
+  ],
+  "mutter": [
+    "{held}! Du bist zurück, und ganz!",
+    "Iss erst einmal. Die Abenteuer laufen dir nicht weg.",
+    "...Ich sehe es dir doch an. Du willst schon wieder los."
+  ],
+  "bruder": [
+    "Erzählst du mir vom Krieg? Nein? Dann wenigstens von Aurelius!",
+    "Der Goldene, so habt ihr ihn genannt, oder?"
+  ],
+  "wirtin": [
+    "Willkommen im Gasthaus zur Furt."
+  ],
+  "haendler": [
+    "Kräuter, Brot, alles, was ein Reisender braucht."
+  ],
+  "veteran": [
+    "Du warst auch drüben in Ysthara, nicht wahr? Man sieht es an den Augen.",
+    "Ein Händler aus dem Süden erzählte von einer neuen Taverne an der Handelsstraße.",
+    "Der Wirt soll ein ehemaliger Soldat sein. Groß, goldenes Haar."
+  ],
+  "kind": [
+    "Bist du ein echter Ritter? Mit Laterne und allem?"
+  ],
+  "schrein": [
+    "Ein kleiner Schrein am Weg. Jemand hat eine Schale Brot hingestellt, für die Fremde, die den Weg zeigt."
+  ],
+  "wegweiser_ost": [
+    "Osten: Tharven. Süden: Handelsstraße nach Auren Veth."
+  ],
+  "wache_ost": [
+    "Halt. Hinter dieser Brücke geht der Prototyp nicht weiter.",
+    "Kapitel 1 wird hier eines Tages weiterführen."
+  ],
+  "besiegt": [
+    "Alles wird schwarz...",
+    "Du erwachst im Gasthaus zur Furt. Die Hälfte deines Goldes ist fort."
+  ]
+}

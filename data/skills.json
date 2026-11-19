@@ -1,0 +1,21 @@
+{
+  "_hinweis": "Fähigkeiten. kp = Kosten. effect: heal oder damage. herb = Gegenstand, der die Wirkung verstärkt und dabei verbraucht wird.",
+  "kraeuterheilung": {
+    "name": "Kräuterheilung",
+    "desc": "Heilt mit Naturmagie. Mit einem Heilkraut deutlich stärker.",
+    "kp": 3,
+    "target": "ally",
+    "effect": "heal",
+    "power": 10,
+    "herb": "heilkraut",
+    "herb_bonus": 16
+  },
+  "schildschlag": {
+    "name": "Schildschlag",
+    "desc": "Ein wuchtiger Stoß mit dem Schild.",
+    "kp": 2,
+    "target": "enemy",
+    "effect": "damage",
+    "multiplier": 1.6
+  }
+}

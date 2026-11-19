@@ -1,0 +1,24 @@
+{
+  "_hinweis": "Gegenstände. effect: heal_hp oder restore_kp. price = Kaufpreis beim Händler.",
+  "heilkraut": {
+    "name": "Heilkraut",
+    "desc": "Heilt etwas Lebenskraft. Verstärkt die Kräuterheilung.",
+    "effect": "heal_hp",
+    "amount": 14,
+    "price": 8
+  },
+  "kraeuterbuendel": {
+    "name": "Kräuterbündel",
+    "desc": "Mehrere Kräuter, fest gebunden. Heilt viel Lebenskraft.",
+    "effect": "heal_hp",
+    "amount": 40,
+    "price": 30
+  },
+  "brot": {
+    "name": "Brot",
+    "desc": "Wer satt ist, hat wieder Kraft für Fähigkeiten.",
+    "effect": "restore_kp",
+    "amount": 6,
+    "price": 5
+  }
+}

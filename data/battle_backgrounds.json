@@ -1,0 +1,5 @@
+{
+  "_hinweis": "Platzhalter-Hintergründe für Kämpfe, bis echte Bilder da sind.",
+  "wald": {"sky": "#8fb8d8", "far": "#3e6e46", "ground": "#4f7f36", "line": "#2c4c24"},
+  "steppe": {"sky": "#a8c8e0", "far": "#c8b070", "ground": "#b89a58", "line": "#8a7040"}
+}
